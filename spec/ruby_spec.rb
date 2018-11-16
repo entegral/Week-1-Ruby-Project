@@ -4,7 +4,7 @@ require ('LanguageTest')
 
 
 describe('LanguageTest#anagram?') do
-
+  
   it('tests inputs for being equivalent') do
     words = LanguageTest.new("seat", "seat")
     expect(words.anagram?()).to(eq(true))
@@ -67,6 +67,16 @@ describe('LanguageTest#anagram?') do
 
   it('tests inputs (multiple words) for NOT being antigrams') do
     words = LanguageTest.new("hi dogs", "bye cats")
+    expect(words.anagram?()).to(eq(false))
+  end
+
+  it('tests regex\'s punctuation and whitespace removal') do
+    words = LanguageTest.new("tom's b!bq", "mots bbq")
+    expect(words.anagram?()).to(eq(true))
+  end
+
+  it('additional tests for regex\'s punctuation and whitespace removal') do
+    words = LanguageTest.new("hi #dog's", "bye cat's!")
     expect(words.anagram?()).to(eq(false))
   end
 
