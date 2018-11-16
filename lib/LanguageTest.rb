@@ -1,4 +1,7 @@
 class LanguageTest
+  attr_accessor(:input_1)
+  attr_accessor(:input_2)
+  
   def initialize (input_1, input_2)
     @input_1 = input_1.downcase
     @input_2 = input_2.downcase
@@ -30,6 +33,9 @@ class LanguageTest
       return false
     end
   end
+
+
+
 
 
   def input_to_letters_array_and_sanitize(input_string)
@@ -80,7 +86,7 @@ class LanguageTest
         return false
       end
     end
-    
+
   end
 
 
