@@ -20,9 +20,14 @@ describe('LanguageTest#anagram?') do
     expect(words.anagram?()).to(eq(false))
   end
 
-  it('tests a method for case sensitivity') do
+  it('tests inputs for case sensitivity') do
     words = LanguageTest.new("Seat", "Teas")
     expect(words.anagram?()).to(eq(true))
+  end
+
+  it('tests random words of different length for anigrams') do
+    words = LanguageTest.new("table", "antiquity")
+    expect(words.anagram?()).to(eq(false))
   end
 
   it('checks that given words contain vowels') do
@@ -44,5 +49,17 @@ describe('LanguageTest#anagram?') do
     words = LanguageTest.new("rail  safety", "fairy fales")
     expect(words.anagram?()).to(eq(false))
   end
+
+  it('tests inputs for being antigrams') do
+    words = LanguageTest.new("treats", "blink")
+    expect(words.anagram?()).to(eq("Your inputs appear to be antigrams!"))
+  end
+
+  it('tests inputs for NOT being antigrams') do
+    words = LanguageTest.new("treats", "blinks")
+    expect(words.anagram?()).to(eq(false))
+  end
+
+
 
 end

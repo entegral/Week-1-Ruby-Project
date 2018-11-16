@@ -9,16 +9,20 @@ class LanguageTest
     if !are_words?
       return "Make sure you input actual words!"
     end
-    # split words into arrays
-    compare_inputs
+
+    array_1, array_2 = convert_to_arrays_and_sanitize
+
     if compare_inputs == []
       return true
+    elsif (compare_inputs.length == array_1.length)
+      return "Your inputs appear to be antigrams!"
     else
       return false
     end
   end
 
-  def convert_to_array_and_sanitize
+
+  def convert_to_arrays_and_sanitize
     if @input_1.split("").include?(" ")
       input_1_array = @input_1.split("")
       input_1_array.delete(" ")
@@ -36,7 +40,7 @@ class LanguageTest
   end
 
   def compare_inputs
-    input_1_array, input_2_array = convert_to_array_and_sanitize
+    input_1_array, input_2_array = convert_to_arrays_and_sanitize
     input_2_array.each do |letter|
       if input_1_array.index(letter)
         input_1_array.delete_at(input_1_array.index(letter))
@@ -48,7 +52,7 @@ class LanguageTest
 
   def are_words?
     vowels = ["a", "e", "i", "o", "u", "y"]
-    input_1_array, input_2_array = convert_to_array_and_sanitize
+    input_1_array, input_2_array = convert_to_arrays_and_sanitize
     if vowels - input_1_array == vowels
       return false
     elsif vowels - input_2_array == vowels

@@ -34,7 +34,7 @@ _This project's objectives require that we use TDD to produce code that tells a 
 
 - [ ] Add rules to make sure inputs are actual words. For instance, there are no words in the English language that contain the same letter three consecutive times (eg "ccc"). Make up rules of your own and document them in your README.
 
-- [ ] Refactor your method to call multiple other methods. For instance, your anagram method might call a palindrome method to check if it is in fact a palindrome.
+- [x] Refactor your method to call multiple other methods. For instance, your anagram method might call a palindrome method to check if it is in fact a palindrome.
 
 - [ ] Use a dictionary gem to look up whether inputs are words.
 
