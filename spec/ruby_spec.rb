@@ -35,9 +35,14 @@ describe('LanguageTest#anagram?') do
     expect(words.anagram?()).to(eq(false))
   end
 
-  it('checks that given phrases are or are not anagrams') do
-    words = LanguageTest.new("rail safety", "fairy tales")
+  it('anagrams are compared correctly independent of whitespaces') do
+    words = LanguageTest.new("rail  safety", "fairy tales")
     expect(words.anagram?()).to(eq(true))
+  end
+
+  it('non-anagrams are correctly identified despite whitespace differences') do
+    words = LanguageTest.new("rail  safety", "fairy fales")
+    expect(words.anagram?()).to(eq(false))
   end
 
 end
