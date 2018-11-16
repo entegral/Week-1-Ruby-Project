@@ -17,7 +17,7 @@ describe('LanguageTest#anagram?') do
 
   it('tests inputs for NOT being an anagram') do
     words = LanguageTest.new("tears", "teas")
-    expect(words.anagram?()).to(eq(false))
+    expect(words.anagram?()).to(eq("Your inputs are not anagrams because of these letters: r"))
   end
 
   it('tests inputs for case sensitivity') do
@@ -27,12 +27,12 @@ describe('LanguageTest#anagram?') do
 
   it('tests random words of different length for anigrams') do
     words = LanguageTest.new("table", "antiquity")
-    expect(words.anagram?()).to(eq(false))
+    expect(words.anagram?()).to(eq("Your inputs are not anagrams because of these letters: b, l, e"))
   end
 
   it('checks that given phrases are or are not anagrams') do
     words = LanguageTest.new("rail safety", "fairy tails")
-    expect(words.anagram?()).to(eq(false))
+    expect(words.anagram?()).to(eq("Your inputs are not anagrams because of these letters: e"))
   end
 
   it('anagrams are compared correctly independent of whitespaces') do
@@ -42,7 +42,7 @@ describe('LanguageTest#anagram?') do
 
   it('non-anagrams are correctly identified despite whitespace differences') do
     words = LanguageTest.new("rail  safety", "fairy tails")
-    expect(words.anagram?()).to(eq(false))
+    expect(words.anagram?()).to(eq("Your inputs are not anagrams because of these letters: e"))
   end
 
   it('tests inputs for being antigrams') do
@@ -52,7 +52,7 @@ describe('LanguageTest#anagram?') do
 
   it('tests inputs for NOT being antigrams') do
     words = LanguageTest.new("treats", "blinks")
-    expect(words.anagram?()).to(eq(false))
+    expect(words.anagram?()).to(eq("Your inputs are not anagrams because of these letters: t, r, e, a, t"))
   end
 
   it('tests inputs (multiple words) for being antigrams') do
@@ -62,7 +62,7 @@ describe('LanguageTest#anagram?') do
 
   it('tests inputs (multiple words) for NOT being antigrams') do
     words = LanguageTest.new("hi dogs", "bye cats")
-    expect(words.anagram?()).to(eq(false))
+    expect(words.anagram?()).to(eq("Your inputs are not anagrams because of these letters: h, i, d, o, g"))
   end
 
   it('tests regex\'s punctuation and whitespace removal') do
@@ -72,7 +72,7 @@ describe('LanguageTest#anagram?') do
 
   it('additional tests for regex\'s punctuation and whitespace removal') do
     words = LanguageTest.new("hi #dog's", "bye cat's!")
-    expect(words.anagram?()).to(eq(false))
+    expect(words.anagram?()).to(eq("Your inputs are not anagrams because of these letters: h, i, d, o, g"))
   end
 
   it('tests if input words are legitimate') do
