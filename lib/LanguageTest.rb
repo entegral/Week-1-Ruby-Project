@@ -5,6 +5,10 @@ class LanguageTest
   end
 
   def anagram?
+    # Check that given words are actual Words
+    if !are_words?
+      return "Make sure you input actual words!"
+    end
      # split words into arrays
      word_1_array = @word1.split("")
      word_2_array = @word1.split("")
@@ -13,8 +17,21 @@ class LanguageTest
      else
        return false
      end
-     # subtract arrays from each other, if remainder exists => return false
-     # build hashes for each letter in each word
-     # sort/count elements of hashes for comparison
   end
+
+
+  def are_words?
+    vowels = ["a", "e", "i", "o", "u", "y"]
+    word_1_array = @word1.split("")
+    word_2_array = @word1.split("")
+    if vowels - word_1_array == vowels
+      return false
+    elsif vowels - word_2_array == vowels
+      return false
+    else
+      return true
+    end
+  end
+
+
 end

@@ -17,11 +17,11 @@ _This project's objectives require that we use TDD to produce code that tells a 
 ## Learning Objectives
 
 
-- [ ] Check if two words are anagrams. If they are, your method should return something like: "These words are anagrams."
+- [x] Check if two words are anagrams. If they are, your method should return something like: "These words are anagrams."
 
-- [ ] Account for the possibility that words may have different cases, but should still be anagrams. For instance, "Tea" is still an anagram of "Eat".
+- [x] Account for the possibility that words may have different cases, but should still be anagrams. For instance, "Tea" is still an anagram of "Eat".
 
-- [ ] Check if inputs are words. Words can only be anagrams or anagrams if they are, in fact, actually words! (For instance, "yurb" isn't an anagram of "ruby" because "yurb" isn't a real word.) A word must contain a vowel (a, i, e, o, u) or y. Otherwise it's not a word. If one of the inputs has no vowels, your method should return something like this: "You need to input actual words!" (You only need to write a rule for vowels; but you are welcome to add other rules as well.)
+- [x] Check if inputs are words. Words can only be anagrams or anagrams if they are, in fact, actually words! (For instance, "yurb" isn't an anagram of "ruby" because "yurb" isn't a real word.) A word must contain a vowel (a, i, e, o, u) or y. Otherwise it's not a word. If one of the inputs has no vowels, your method should return something like this: "You need to input actual words!" (You only need to write a rule for vowels; but you are welcome to add other rules as well.)
 
 - [ ] If phrases aren't anagrams, the method should check whether they are actually "antigrams." For our purposes, a word is an "antigram" of another word if no letters match. For example, "hi" has no matches with "bye". The method should return something like this if there are no letter matches: "These words have no letter matches and are antigrams."
 
