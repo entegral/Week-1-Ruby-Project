@@ -11,10 +11,10 @@ _This project's objectives require that we use TDD to produce code that tells a 
 * _Clone [this](https://github.com/entegral/Week-1-Ruby-Project.git) GitHub repo_
 * _Install Bundler Gem and run 'bundle'_
 * _run to run tests_
- * > 'rspec'
+--* > 'rspec'
 * _Enter 'irb', create LanguageTest object:_
- * > words = LanguageTest.new("rail  safety", "fairy tails")
- * > words.anagram?
+--* > words = LanguageTest.new("rail  safety", "fairy tails")
+--* > words.anagram?
 
 ## Learning Objectives
 
