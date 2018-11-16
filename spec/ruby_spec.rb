@@ -36,7 +36,7 @@ describe('LanguageTest#anagram?') do
   end
 
   it('checks that given phrases are or are not anagrams') do
-    words = LanguageTest.new("rail safety", "fairy tales")
+    words = LanguageTest.new("rail  safety", "fairy tales")
     expect(words.anagram?()).to(eq(true))
   end
 

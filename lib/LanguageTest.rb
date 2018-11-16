@@ -18,9 +18,25 @@ class LanguageTest
     end
   end
 
+  def convert_to_array_and_sanitize
+    if @input_1.split("").include?(" ")
+      input_1_array = @input_1.split("")
+      input_1_array.delete(" ")
+    else
+      input_1_array = @input_1.split("")
+    end
+
+    if @input_2.split("").include?(" ")
+      input_2_array = @input_2.split("")
+      input_2_array.delete(" ")
+    else
+      input_2_array = @input_2.split("")
+    end
+    return input_1_array, input_2_array
+  end
+
   def compare_inputs
-    input_1_array = @input_1.split("")
-    input_2_array = @input_2.split("")
+    input_1_array, input_2_array = convert_to_array_and_sanitize
     input_2_array.each do |letter|
       if input_1_array.index(letter)
         input_1_array.delete_at(input_1_array.index(letter))
@@ -32,8 +48,7 @@ class LanguageTest
 
   def are_words?
     vowels = ["a", "e", "i", "o", "u", "y"]
-    input_1_array = @input_1.split("")
-    input_2_array = @input_2.split("")
+    input_1_array, input_2_array = convert_to_array_and_sanitize
     if vowels - input_1_array == vowels
       return false
     elsif vowels - input_2_array == vowels
