@@ -27,12 +27,14 @@ class LanguageTest
       return "Make sure you input actual words!"
     end
 
-    if compare_inputs == []
+    difference = compare_inputs
+
+    if difference == []
       return true
-    elsif (compare_inputs.length == array_1.length)
+    elsif (difference.length == array_1.length)
       return "Your inputs appear to be antigrams!"
     else
-      return false
+      return "Your inputs are not anagrams because of these letters: #{difference.join(", ")}"
     end
   end
 
