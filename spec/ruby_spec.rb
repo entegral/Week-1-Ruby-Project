@@ -60,6 +60,16 @@ describe('LanguageTest#anagram?') do
     expect(words.anagram?()).to(eq(false))
   end
 
+  it('tests inputs (multiple words) for being antigrams') do
+    words = LanguageTest.new("hi dog", "bye cat")
+    expect(words.anagram?()).to(eq("Your inputs appear to be antigrams!"))
+  end
+
+  it('tests inputs (multiple words) for NOT being antigrams') do
+    words = LanguageTest.new("hi dogs", "bye cats")
+    expect(words.anagram?()).to(eq(false))
+  end
+
 
 
 end
