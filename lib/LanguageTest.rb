@@ -1,7 +1,7 @@
 class LanguageTest
   attr_accessor(:input_1)
   attr_accessor(:input_2)
-  
+
   def initialize (input_1, input_2)
     @input_1 = input_1.downcase
     @input_2 = input_2.downcase
@@ -76,13 +76,13 @@ class LanguageTest
     input_2_array = input_to_words_array(@input_2)
 
     input_1_array.each do |word|
-      unless @word_list.fetch(word) == true
+      unless @word_list.fetch(word, false) == true
         return false
       end
     end
 
     input_2_array.each do |word|
-      unless @word_list.fetch(word) == true
+      unless @word_list.fetch(word, false) == true
         return false
       end
     end

@@ -75,6 +75,18 @@ describe('LanguageTest#anagram?') do
     expect(words.anagram?()).to(eq(false))
   end
 
+  it('tests if input words are legitimate') do
+    words = LanguageTest.new("anticheese", "cat")
+    expect(words.anagram?()).to(eq("Make sure you input actual words!"))
+  end
+
+  it('tests if input words are legitimate') do
+    words = LanguageTest.new("cheese", "anticat")
+    expect(words.anagram?()).to(eq("Make sure you input actual words!"))
+  end
+
+
+
 
 
 end
