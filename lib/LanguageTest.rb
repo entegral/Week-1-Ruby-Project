@@ -2,12 +2,14 @@ class LanguageTest
   attr_accessor(:input_1)
   attr_accessor(:input_2)
 
+
   def initialize (input_1, input_2)
     @input_1 = input_1.downcase
     @input_2 = input_2.downcase
     @word_list = {}
     load_dictionary("en_words.txt")
   end
+
 
   def load_dictionary(file_path)
     File.open(file_path) do |file|
@@ -17,13 +19,13 @@ class LanguageTest
     end
   end
 
+
   def anagram?
-    # Check that given words are actual Words
+    array_1 = input_to_letters_array_and_sanitize(@input_1)
+
     unless are_words?
       return "Make sure you input actual words!"
     end
-
-    array_1 = input_to_letters_array_and_sanitize(@input_1)
 
     if compare_inputs == []
       return true
@@ -33,9 +35,6 @@ class LanguageTest
       return false
     end
   end
-
-
-
 
 
   def input_to_letters_array_and_sanitize(input_string)
