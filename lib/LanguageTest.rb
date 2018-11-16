@@ -1,7 +1,7 @@
 class LanguageTest
-  def initialize (word1, word2)
-    @word1 = word1.downcase
-    @word2 = word2.downcase
+  def initialize (input_1, input_2)
+    @input_1 = input_1.downcase
+    @input_2 = input_2.downcase
   end
 
   def anagram?
@@ -9,24 +9,34 @@ class LanguageTest
     if !are_words?
       return "Make sure you input actual words!"
     end
-     # split words into arrays
-     word_1_array = @word1.split("")
-     word_2_array = @word1.split("")
-     if (word_1_array - word_2_array).length == 0
-       return true
-     else
-       return false
-     end
+    # split words into arrays
+    compare_inputs
+    if compare_inputs == []
+      return true
+    else
+      return false
+    end
+  end
+
+  def compare_inputs
+    input_1_array = @input_1.split("")
+    input_2_array = @input_2.split("")
+    input_2_array.each do |letter|
+      if input_1_array.index(letter)
+        input_1_array.delete_at(input_1_array.index(letter))
+      end
+    end
+    input_1_array
   end
 
 
   def are_words?
     vowels = ["a", "e", "i", "o", "u", "y"]
-    word_1_array = @word1.split("")
-    word_2_array = @word1.split("")
-    if vowels - word_1_array == vowels
+    input_1_array = @input_1.split("")
+    input_2_array = @input_2.split("")
+    if vowels - input_1_array == vowels
       return false
-    elsif vowels - word_2_array == vowels
+    elsif vowels - input_2_array == vowels
       return false
     else
       return true
