@@ -76,18 +76,13 @@ class LanguageTest
     input_2_array = input_to_words_array(@input_2)
 
     input_1_array.each do |word|
-      unless @word_list.fetch(word, false) == true
+      if @word_list.fetch(word, false)
+        input_2_array.each do |another_word|
+          return @word_list.fetch(another_word, false)
+        end
+      else
         return false
       end
     end
-
-    input_2_array.each do |word|
-      unless @word_list.fetch(word, false) == true
-        return false
-      end
-    end
-
   end
-
-
 end
