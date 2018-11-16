@@ -3,15 +3,16 @@ require ('pry')
 require ('LanguageTest')
 
 
-describe('LanguageTest') do 
+describe('LanguageTest#anagram?') do
 
-  it('tests a method for LanguageTest') do
+  it('tests a word for being equivalent') do
+    words = LanguageTest.new("seat", "seat")
+    expect(words.anagram?()).to(eq(true))
+  end
 
-    dummy = LanguageTest.new()
-
-    expect(dummy.method()).to(eq(expected result))
-
+  it('tests a method for being an anagram') do
+    words = LanguageTest.new("seat", "teas")
+    expect(words.anagram?()).to(eq(true))
   end
 
 end
-
