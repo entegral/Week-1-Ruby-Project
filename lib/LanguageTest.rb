@@ -5,8 +5,15 @@ class LanguageTest
   end
 
   def anagram?
-     # test to see if words are identical
      # split words into arrays
+     word_1_array = @word1.split("")
+     word_2_array = @word1.split("")
+     if (word_1_array - word_2_array).length == 0
+       return true
+     else
+       return false
+     end
+     # subtract arrays from each other, if remainder exists => return false
      # build hashes for each letter in each word
      # sort/count elements of hashes for comparison
   end
