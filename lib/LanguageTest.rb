@@ -2,15 +2,25 @@ class LanguageTest
   def initialize (input_1, input_2)
     @input_1 = input_1.downcase
     @input_2 = input_2.downcase
+    @word_list = {}
+    load_dictionary("en_words.txt")
+  end
+
+  def load_dictionary(file_path)
+    File.open(file_path) do |file|
+      file.each do |line|
+        @word_list[line.strip] = true
+      end
+    end
   end
 
   def anagram?
     # Check that given words are actual Words
-    if !are_words?
+    unless are_words?
       return "Make sure you input actual words!"
     end
 
-    array_1 = convert_to_arrays_and_sanitize(@input_1)
+    array_1 = input_to_letters_array_and_sanitize(@input_1)
 
     if compare_inputs == []
       return true
@@ -22,7 +32,7 @@ class LanguageTest
   end
 
 
-  def convert_to_arrays_and_sanitize(input_string)
+  def input_to_letters_array_and_sanitize(input_string)
     regex = /[^a-zA-Z]+/
 
     input_clean = input_string.gsub(regex, "")
@@ -31,9 +41,21 @@ class LanguageTest
     return input_array
   end
 
+
+  def input_to_words_array(input_string)
+    regex = /[^a-zA-Z]+/
+    clean_words_array = []
+    words_array = input_string.split(" ")
+    words_array.each do |word|
+      clean_words_array.push(word.gsub(regex, ""))
+    end
+    clean_words_array
+  end
+
+
   def compare_inputs
-    input_1_array = convert_to_arrays_and_sanitize(@input_1)
-    input_2_array = convert_to_arrays_and_sanitize(@input_2)
+    input_1_array = input_to_letters_array_and_sanitize(@input_1)
+    input_2_array = input_to_letters_array_and_sanitize(@input_2)
     input_2_array.each do |letter|
       if input_1_array.index(letter)
         input_1_array.delete_at(input_1_array.index(letter))
@@ -44,16 +66,21 @@ class LanguageTest
 
 
   def are_words?
-    vowels = ["a", "e", "i", "o", "u", "y"]
-    input_1_array = convert_to_arrays_and_sanitize(@input_1)
-    input_2_array = convert_to_arrays_and_sanitize(@input_2)
-    if vowels - input_1_array == vowels
-      return false
-    elsif vowels - input_2_array == vowels
-      return false
-    else
-      return true
+    input_1_array = input_to_words_array(@input_1)
+    input_2_array = input_to_words_array(@input_2)
+
+    input_1_array.each do |word|
+      unless @word_list.fetch(word) == true
+        return false
+      end
     end
+
+    input_2_array.each do |word|
+      unless @word_list.fetch(word) == true
+        return false
+      end
+    end
+    
   end
 
 

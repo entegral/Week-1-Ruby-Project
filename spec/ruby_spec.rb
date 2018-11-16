@@ -4,7 +4,7 @@ require ('LanguageTest')
 
 
 describe('LanguageTest#anagram?') do
-  
+
   it('tests inputs for being equivalent') do
     words = LanguageTest.new("seat", "seat")
     expect(words.anagram?()).to(eq(true))
@@ -30,13 +30,8 @@ describe('LanguageTest#anagram?') do
     expect(words.anagram?()).to(eq(false))
   end
 
-  it('checks that given words contain vowels') do
-    words = LanguageTest.new("strng", "grnts")
-    expect(words.anagram?()).to(eq("Make sure you input actual words!"))
-  end
-
   it('checks that given phrases are or are not anagrams') do
-    words = LanguageTest.new("rail safety", "fairy fales")
+    words = LanguageTest.new("rail safety", "fairy tails")
     expect(words.anagram?()).to(eq(false))
   end
 
@@ -46,7 +41,7 @@ describe('LanguageTest#anagram?') do
   end
 
   it('non-anagrams are correctly identified despite whitespace differences') do
-    words = LanguageTest.new("rail  safety", "fairy fales")
+    words = LanguageTest.new("rail  safety", "fairy tails")
     expect(words.anagram?()).to(eq(false))
   end
 
@@ -71,7 +66,7 @@ describe('LanguageTest#anagram?') do
   end
 
   it('tests regex\'s punctuation and whitespace removal') do
-    words = LanguageTest.new("tom's b!bq", "mots bbq")
+    words = LanguageTest.new("tom's hu!ngry", "mots hungry")
     expect(words.anagram?()).to(eq(true))
   end
 
