@@ -4,7 +4,7 @@
 
 ## Description
 
-_This project's objectives require that we use TDD to produce code that tells a user whether or not two words are anagrams (or antigrams) of each other._
+_This project's objectives require that we use TDD to produce an Ruby application that tells a user whether or not two words are anagrams (or antigrams) of each other. If they are not anagrams or antigrams, then it tells you how they differ. This program uses a built in dictionary, provided by LetterPress Word List, under a CC0 license. It also includes a shell script that can be used in lieu of irb._
 
 ## Setup/Installation Requirements
 
