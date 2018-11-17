@@ -16,8 +16,9 @@ _This project's objectives require that we use TDD to produce an Ruby applicatio
  >      ./test_drive_anagram.rb
 
 * _Expected Output_
- >      "Your inputs are not anagrams because of these letters: a, b, c, d, e"
+ >      "Your inputs appear to be anagrams!"
  >      "Your inputs appear to be antigrams!"
+ >      "Your inputs are not anagrams because of these letters: a, b, c, d, e"
  >      "Make sure you input actual words!"
 
 ## Learning Objectives
