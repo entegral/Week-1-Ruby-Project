@@ -27,14 +27,15 @@ class LanguageTest
       return "Make sure you input actual words!"
     end
 
-    difference = compare_inputs
+    difference_1 = compare_inputs(input_1, input_2)
+    difference_2 = compare_inputs(input_2, input_1)
 
-    if difference == []
-      return true
-    elsif (difference.length == array_1.length)
+    if difference_1 == []
+      return "Your inputs appear to be anagrams!"
+    elsif (difference_1.length == array_1.length)
       return "Your inputs appear to be antigrams!"
     else
-      return "Your inputs are not anagrams because of these letters: #{difference.join(", ")}"
+      return "Your inputs are not anagrams because of these letters: #{(difference_1 + difference_2).join(", ")}"
     end
   end
 
@@ -60,9 +61,9 @@ class LanguageTest
   end
 
 
-  def compare_inputs
-    input_1_array = input_to_letters_array_and_sanitize(@input_1)
-    input_2_array = input_to_letters_array_and_sanitize(@input_2)
+  def compare_inputs(input_1, input_2)
+    input_1_array = input_to_letters_array_and_sanitize(input_1)
+    input_2_array = input_to_letters_array_and_sanitize(input_2)
     input_2_array.each do |letter|
       if input_1_array.index(letter)
         input_1_array.delete_at(input_1_array.index(letter))
