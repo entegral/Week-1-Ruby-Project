@@ -10,13 +10,13 @@ _This project's objectives require that we use TDD to produce code that tells a 
 
 * _Clone [this](https://github.com/entegral/Week-1-Ruby-Project.git) GitHub repo_
 * _Install Bundler Gem and run 'bundle'_
-* _to run tests:_
-  > 'rspec'
-* _Enter 'irb', create LanguageTest object:_
- > words = LanguageTest.new("rail  safety", "fairy tails")
- > words.anagram?
- >      true
- >      false
+* _Add executable privileges to the script:_
+ >      chmod +x test_drive_anagram.rb
+* _Run script and follow instructions:_
+ >      ./test_drive_anagram.rb
+
+* _Expected Output_
+ >      "Your inputs are not anagrams because of these letters: a, b, c, d, e"
  >      "Your inputs appear to be antigrams!"
  >      "Make sure you input actual words!"
 
@@ -35,14 +35,16 @@ _This project's objectives require that we use TDD to produce code that tells a 
 
 ## Further Objectives
 
+- [x] Add shell script to permit live-use of anagram feature.
 
-- [ ] If two phrases aren't anagrams, return how many letters from the argument are actual matches with the receiver. (Remember, receiver.method(arguments).) Use string interpolation. For instance, cat.anagram("batty") would return something like this: "These words aren't anagrams but 2 letters match: a, t."
+- [x] Use a dictionary to look up whether inputs are words.
+
+- [x] If two phrases aren't anagrams, return how many letters from the argument are actual matches with the receiver. (Remember, receiver.method(arguments).) Use string interpolation. For instance, cat.anagram("batty") would return something like this: "These words aren't anagrams but 2 letters match: a, t."
 
 - [x] Add rules to make sure inputs are actual words. For instance, there are no words in the English language that contain the same letter three consecutive times (eg "ccc"). Make up rules of your own and document them in your README.
 
 - [x] Refactor your method to call multiple other methods. For instance, your anagram method might call a palindrome method to check if it is in fact a palindrome.
 
-- [x] Use a dictionary to look up whether inputs are words.
 
 ## Technologies Used
 _Ruby 2.2.2_
