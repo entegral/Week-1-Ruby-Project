@@ -87,4 +87,15 @@ class LanguageTest
       end
     end
   end
+
+  # vowels = ["a", "e", "i", "o", "u", "y"]
+  # input_1_array, input_2_array = convert_to_arrays_and_sanitize
+  # if vowels - input_1_array == vowels
+  #   return false
+  # elsif vowels - input_2_array == vowels
+  #   return false
+  # else
+  #   return true
+  # end
+
 end
